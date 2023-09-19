@@ -5,10 +5,10 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="nav-bar">
-        <ul className="nav-bar__list list">
-          <li className="nav-bar__element element">Главная</li>
-          <li className="nav-bar__element element">Концерты</li>
-          <li className="nav-bar__element element">Карта концертов</li>
+        <ul className="header__list list">
+          <li className="header__element element">Главная</li>
+          <li className="header__element element">Концерты</li>
+          <li className="header__element element">Карта концертов</li>
         </ul>
       </nav>
       <div className="user-info">

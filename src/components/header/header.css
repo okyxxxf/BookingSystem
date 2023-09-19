@@ -7,7 +7,7 @@
     background-color: #775A85;;
 }
 
-.nav-bar__list {
+.header__list {
     gap: 90px
 }
 
@@ -21,4 +21,24 @@
 .user-info {
     display: flex;
     gap: 5px;
+}
+
+.header__element {
+    color: #D9D9D9;
+    text-align: center;
+    font-family: Comfortaa;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.user-info > * {
+    color: #D9D9D9;
+    text-align: center;
+    font-family: Comfortaa;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
