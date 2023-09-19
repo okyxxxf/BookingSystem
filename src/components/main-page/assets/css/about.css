@@ -1,0 +1,53 @@
+.section__about {
+    height: 448px;
+    background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
+    display: flex;
+    position: relative;
+    z-index: -2;
+}
+
+.h1, .text {
+    margin: 0;
+}
+
+.kitten {
+    position: absolute;
+}
+
+.about__info {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 120px;
+}
+
+.kitten1 {
+    right: 20px;
+    bottom: 0;
+}
+
+.kitten2 {
+    right: 173px;
+    bottom: 0;
+    transform: rotate(-10deg);
+    z-index: -1;
+}
+
+.about__h1 {
+    color: #D9D9D9;
+    font-family: Comfortaa;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.about__text {
+    color: #D9D9D9;
+    font-family: Comfortaa;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
