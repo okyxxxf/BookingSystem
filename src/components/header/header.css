@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    height: 64px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+    background-color: #775A85;;
+}
+
+.nav-bar__list {
+    gap: 90px
+}
+
+.list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-info {
+    display: flex;
+    gap: 5px;
+}
