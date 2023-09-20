@@ -1,0 +1,87 @@
+.hot-concerts__section {
+    display: flex;
+    z-index: 1;
+    background-color: #1A1A1A;
+    height: 792px;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+}
+
+.h2, .h3, .p {
+    margin: 0;
+}
+
+.hot-concert__h2 {
+    margin: 0 auto;
+    padding: 63px 0 29px 0;
+    display: flex;
+    gap: 20px;
+    color: #D9D9D9;
+    text-align: center;
+    font-family: Comfortaa;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.icon-fire {
+    width: 44px;
+    height: 44px;
+}
+
+.cards {
+    display: flex;
+}
+
+.hot-concert__cards {
+    gap: 65px;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+}
+
+.hot-concert__card {
+    transition: 0.2s;
+    border-radius: 40px;
+    width: 248px;
+    height: 360px;
+    flex-direction: column;
+    background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
+}
+
+.hot-concert__card:hover {
+    transform: scale(1.17);
+    cursor: pointer;
+}
+
+.card__img {
+    width: 222x;
+    height: 222px;
+    padding: 11px;
+    border-radius: 40px;
+}
+
+.card__h3 {
+    color: #D9D9D9;
+    text-align: center;
+    font-family: Comfortaa;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 9px 0 19px 0;
+}
+
+.card__p {
+    color: #D9D9D9;
+    text-align: center;
+    font-family: Comfortaa;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
