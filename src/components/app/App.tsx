@@ -4,8 +4,8 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import MainPage from '../mainPage/mainPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ErrorComponent from '../error/error';
 import SearchPage from '../searchPage/searchPage';
+import ErrorPage from '../errorPage.tsx/errorPage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <Header/>
         <Routes>
-          <Route path="*" element={<ErrorComponent />}/>
+          <Route path="*" element={<ErrorPage />}/>
           <Route path='' element={<MainPage/>}/>
           <Route path='concerts' element={<SearchPage/>}/>
         </Routes>
