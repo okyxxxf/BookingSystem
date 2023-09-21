@@ -1,0 +1,6 @@
+.concerts {
+    padding-top: 60px;
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
+}
