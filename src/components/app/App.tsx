@@ -6,6 +6,7 @@ import MainPage from '../mainPage/mainPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SearchPage from '../searchPage/searchPage';
 import ErrorPage from '../errorPage.tsx/errorPage';
+import ConcertPage from '../concertPage.tsx/concertPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="*" element={<ErrorPage />}/>
           <Route path='' element={<MainPage/>}/>
           <Route path='concerts' element={<SearchPage/>}/>
+          <Route path='concerts/:concertId' element={<ConcertPage/>}/>
         </Routes>
         <Footer/>
       </div>
