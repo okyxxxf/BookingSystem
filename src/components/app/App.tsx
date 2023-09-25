@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SearchPage from '../searchPage/searchPage';
 import ErrorPage from '../errorPage/errorPage';
 import ConcertPage from '../concertPage/concertPage';
+import MapPage from '../mapPage/mapPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="*" element={<ErrorPage />}/>
           <Route path='' element={<MainPage/>}/>
+          <Route path='map' element={<MapPage/>} />
           <Route path='concerts' element={<SearchPage/>}/>
           <Route path='concerts/:concertId' element={<ConcertPage/>}/>
         </Routes>
