@@ -5,8 +5,8 @@ import Footer from '../footer/footer';
 import MainPage from '../mainPage/mainPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SearchPage from '../searchPage/searchPage';
-import ErrorPage from '../errorPage.tsx/errorPage';
-import ConcertPage from '../concertPage.tsx/concertPage';
+import ErrorPage from '../errorPage/errorPage';
+import ConcertPage from '../concertPage/concertPage';
 
 function App() {
   return (
