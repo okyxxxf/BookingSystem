@@ -8,6 +8,7 @@ import SearchPage from '../searchPage/searchPage';
 import ErrorPage from '../errorPage/errorPage';
 import ConcertPage from '../concertPage/concertPage';
 import MapPage from '../mapPage/mapPage';
+import UserPage from '../userPage/userPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='map' element={<MapPage/>} />
           <Route path='concerts' element={<SearchPage/>}/>
           <Route path='concerts/:concertId' element={<ConcertPage/>}/>
+          <Route path='user' element={<UserPage/>}/>
         </Routes>
         <Footer/>
       </div>

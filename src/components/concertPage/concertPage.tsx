@@ -2,7 +2,7 @@ import React from "react";
 import './concertPage.css';
 import ticketIcon from './assets/svg/Vector.svg';
 import Button from "../buttons/button";
-import Input from "../inputs/input";
+import InputNumber from "../inputs/inputNumber";
 
 const ConcertPage = () => {
   return (
@@ -29,7 +29,7 @@ const ConcertPage = () => {
           </p>
         </div>
         <div className="concert-page__inputs">
-          <Input value={1}/>
+          <InputNumber value={1}/>
           <Button text='Забронировать билет' type='white'/>
         </div>
       </div>

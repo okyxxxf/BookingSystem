@@ -5,11 +5,10 @@ import './assets/css/concerts.css';
 const Concerts = () => {
   return (
     <div className="concerts">
-      <Concert/>
-      <Concert/>
-      <Concert/>
-      <Concert/>
-      <Concert/>
+      <Concert type={'big'}/>
+      <Concert type={'big'}/>
+      <Concert type={'big'}/>
+      <Concert type={'big'}/>
     </div>
   )
 };
