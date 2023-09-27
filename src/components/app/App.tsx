@@ -9,7 +9,6 @@ import ErrorPage from '../errorPage/errorPage';
 import ConcertPage from '../concertPage/concertPage';
 import MapPage from '../mapPage/mapPage';
 import UserPage from '../userPage/userPage';
-import Login from '../modals/login/logit';
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
           <Route path='concerts/:concertId' element={<ConcertPage/>}/>
           <Route path='user' element={<UserPage/>}/>
         </Routes>
-
         <Footer/>
       </div>
     </BrowserRouter>

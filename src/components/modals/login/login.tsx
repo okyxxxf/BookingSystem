@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div className="modal__login modal">
       <div className="login__wrapper">
-        <div className="cross-icon">X</div>
+        <div className="cross-icon">x</div>
         <form className="user-settings__form" action="">
           <legend className="user-settings__h2 login__h2">Авторизация</legend>
           <label className="user-settings__p" htmlFor="name">Имя:</label>
