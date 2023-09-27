@@ -1,0 +1,49 @@
+.login__wrapper {
+    position: relative;
+    border-radius: 30px;
+    width: 513px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
+}
+
+.modal {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.348);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login__h2 {
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.cross-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.login__line {
+    width: 419px;
+    margin: auto;
+    border-bottom: solid 2px #D9D9D9;
+}
+
+.login__p {
+    text-align: start;
+    padding-bottom: 50px;
+}
