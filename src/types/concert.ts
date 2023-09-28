@@ -1,0 +1,10 @@
+import ConcertType from "./concertType";
+import OpenAirType from "./openAir";
+import PartyType from "./party";
+
+type Concert = {
+  concert : ConcertType,
+  additionalInfo : OpenAirType | PartyType,
+}
+
+export default Concert;
