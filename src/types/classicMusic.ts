@@ -1,4 +1,4 @@
-type ClassicMusic = {
+type ClassicMusicType = {
   id : number,
   concertId : number,
   voiceType : 'A' | 'T' | 'B',
@@ -6,4 +6,4 @@ type ClassicMusic = {
   composer : string,
 }
 
-export default ClassicMusic;
+export default ClassicMusicType;
