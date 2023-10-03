@@ -14,7 +14,7 @@ const ErrorPage = () => {
           </p>
         </div>
         <div className="error-message__cat">
-          <img src="https://s3-alpha-sig.figma.com/img/a3b8/1429/d85b7ae2fd3f237d533404cce2228af7?Expires=1696204800&Signature=F6xREn5G3d8ZqCyFFcP4tQ5Dgx4c8J7YX7V1Rro~RLv-8oDIkahNfuSV9Mko4mu4UMoJGP37TxawGXMKFoxMySo6HKqhwuIe26Y6gg3WNzbxyfnVjSQuTWWb4~blkjBw~t5ZBGvpofB4gX7gD1SFNt5nE9lmRZj8XEH~LjsNxfX1IjTNF7PdiXtElLeNL7T7lemI9bpjuabchsxqrK6Q5BpkyixH5lMeMl9JbdvoF1eh10V92sDKWCf38PKlmYlwYW881xqR-0p5DYStX-OkKFCXOB6Rcb~Ojnnvj-PMej4Y8nZ8tAGXDGye4z8Q45WaomH6ysmkKeRX08rRJol2xg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt='cat dance'/>
+          <img src="https://s3-alpha-sig.figma.com/img/a3b8/1429/d85b7ae2fd3f237d533404cce2228af7?Expires=1697414400&Signature=JMRpR-1Aoe5g5ukpmEfpRaKgTZo9G9qsJWN6kn4ES~NYzwMzG8FSj-dD3KNAhICbfeUPYNpOeozm-tNvVJJtsR0f2L2-cmecMTvk-iYoq0i4FRO2aKzBW98BplIyHeGPLlsgraE3Ev4Iw-wUqGZAXhgHceHVwYoCcB2nkKW6Nhs~BgLmVjKJTbV5L3HsemEPLvFFX1QKeLzpufdHBG8WjXVnsvluM-8XxAy4P~E2v7ZTCrUUUeWEj3PMOX-CcESzArAGFsgdxSM~wkvsVMJUsD5OZIEXOg-1dwWV473ms~M5eK5RRv5QQ7lqPnuluE98oCwNoUDVx55b8kMPBPVIcg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt='cat dance'/>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ import ConcertPage from '../concertPage/concertPage';
 import MapPage from '../mapPage/mapPage';
 import UserPage from '../userPage/userPage';
 
-function App() {
+function App () {
   return (
     <BrowserRouter>
       <div className="App">
