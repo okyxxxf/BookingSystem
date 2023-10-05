@@ -5,6 +5,9 @@ type ConcertType = {
   date : Date,
   place : string,
   concertType : 'CM' | 'OA' | 'P',
+  name : string,
+  description : string,
+  image : File | string,
 }
 
 export default ConcertType;
