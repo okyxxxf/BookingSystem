@@ -1,13 +1,14 @@
 type ConcertType = {
   id : number,
   performer : string,
-  ticketCount : number,
+  tickets_count : number,
   date : Date,
   place : string,
-  concertType : 'CM' | 'OA' | 'P',
+  concert_type : 'CM' | 'OA' | 'P',
   name : string,
   description : string,
   image : File | string,
+  price : number,
 }
 
 export default ConcertType;

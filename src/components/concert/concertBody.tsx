@@ -11,33 +11,38 @@ interface concertBodyPropsInterface {
 }
 
 const ConcertBody = ({ img, description, price, status, data } : concertBodyPropsInterface) => {
-  const [ concert, additionalInfo ] = data;
-  const { id, performer, ticketCount, date, place, concertType} = concert;
+  const concertTypeValues = { 'CM' : 'Классическая музыка', 'OA' : 'ОпенЭир', 'P' : 'Вечеринка'};
+  const [ concert ] = data;
+  const { id, performer, tickets_count, date, place, concert_type, name, image } = concert;
+
   return (
-    <div className="concert">
-        { img ? <div className='concert__image'></div> : null }
+    <div className="concert" key={id}>
+        { img ? <div className='concert__image' style={{
+          background : `url(${image})`
+        }}></div> : null }
         <div className="concert__info">
-          <h2 className="concert__h2 h2">{`${performer}`}</h2>
+          <h2 className="concert__h2 h2">{`${name}`}</h2>
+          <p className="concert__adress concert__p p">{performer}</p>
           <p className="concert__adress concert__p p">{place}</p>
-          { description ? <p className="concert__p p">{`${performer} - ${date} - ${place}`}</p> : null }
+          { description ? <p className="concert__p p">{`${concert.description}`}</p> : null }
         </div>
         <div className="concert__info">
-            { price ? <AdditionalInfo ticketCount={ticketCount}/> : null }
+            { price ? <AdditionalInfo ticketCount={tickets_count} price={concert.price} /> : null }
             { status ? <div className="concert__status concert__status_booking">Забронировано</div> : null}
           <div className="concert__tags">
             <div className="concert__tag">{`${date}`}</div>
-            <div className="concert__tag">{concertType}</div>
+            <div className="concert__tag">{concertTypeValues[concert_type]}</div>
           </div>
         </div>
     </div>
   )
 };
 
-const AdditionalInfo = ({ticketCount } : {ticketCount : number}) => {
+const AdditionalInfo = ({ticketCount, price} : {ticketCount : number, price : number}) => {
   return (
     <div className='concert__info-additional'>
-      <div className="concert__price">25 рублей</div> 
-      <div className="concert__tickets">{ticketCount} <img className='ticket-icon' src={ticketIcon} alt='ticket-icon'/></div>
+      <div className="concert__price">{`${price} рублей`}</div> 
+      <div className="concert__tickets">{ticketCount}<img className='ticket-icon' src={ticketIcon} alt='ticket-icon'/></div>
     </div>
   )
 }
