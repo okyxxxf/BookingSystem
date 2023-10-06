@@ -43,3 +43,27 @@
     font-weight: 400;
     line-height: normal;
 }
+
+.header__element_active {
+    position: relative;
+}
+
+.header__element_active:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    background: rgba(217, 217, 217, 1);
+    height: 2px;
+    border-radius: 2px;
+    transition: 1s;
+    animation: show-from-left 1s ease forwards;
+}
+
+@keyframes show-from-left {
+    to {
+        width: 100%;
+    }
+}
+

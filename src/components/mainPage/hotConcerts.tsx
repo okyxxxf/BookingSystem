@@ -33,7 +33,7 @@ const HotConcerts = () => {
           <p className='card__p p'>Цена: 25руб.</p>
         </div>
       </div>
-      <Button text={'Выбрать билет'} type={'white'} />
+      <Button text={'Выбрать билет'} type={'default'} />
     </section>
   )
 };

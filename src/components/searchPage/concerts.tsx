@@ -17,9 +17,9 @@ const Concerts = () => {
 
   return (
     <div className="concerts">
-      {concerts && concerts.map((concert) => {
+      {concerts && concerts.map((concert, i) => {
         return (
-          <Concert type="big" data={concert}/>
+          <Concert type="big" data={concert} key={i}/>
         )
       })}
     </div>
