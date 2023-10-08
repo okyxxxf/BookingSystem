@@ -2,7 +2,13 @@ import React, {useState} from "react";
 import './header.css';
 import { Link } from "react-router-dom";
 
-const Header = () => {
+interface headerProps {
+  openCloseLogin : Function,
+  openCloseRegistration : Function
+}
+
+
+const Header = ({ openCloseLogin, openCloseRegistration} : headerProps) => {
   const [activeBar, setActive] = useState(0);
   const bars = ['Главная', 'Концерты', 'Карта концертов'];
   const barsLink = ['', 'concerts', 'map'];
@@ -30,9 +36,11 @@ const Header = () => {
       <div className="user-info">
         <div 
         className="registration"
-        onClick={() => {}}>Регистрация</div>
+        onClick={() => {openCloseRegistration(true)}}>Регистрация</div>
         <div className="interpunct">&#183;</div>
-        <div className="login">Вход</div>
+        <div 
+        className="login"
+        onClick={() => {openCloseLogin(true)}}>Вход</div>
       </div>
     </header>
   );

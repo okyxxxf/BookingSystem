@@ -3,11 +3,13 @@ import Input from "../../inputs/input";
 import Button from "../../buttons/button";
 import './login.css';
 
-const Login = () => {
+const Login = ({closeLogin} : {closeLogin : Function}) => {
   return (
     <div className="modal__login modal">
       <div className="login__wrapper">
-        <div className="cross-icon">x</div>
+        <div 
+        className="cross-icon"
+        onClick={() => closeLogin(false)}>x</div>
         <form className="user-settings__form" action="">
           <legend className="user-settings__h2 login__h2">Авторизация</legend>
           <label className="user-settings__p" htmlFor="name">Имя:</label>

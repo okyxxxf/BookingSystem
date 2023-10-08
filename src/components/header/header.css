@@ -67,3 +67,15 @@
     }
 }
 
+.login, .registration {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.login:hover, .registration:hover {
+    color: white;
+}
+
+.header:has(.modal) .header{
+    padding: 0;
+}

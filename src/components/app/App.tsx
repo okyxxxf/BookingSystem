@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -9,12 +9,18 @@ import ErrorPage from '../errorPage/errorPage';
 import ConcertPage from '../concertPage/concertPage';
 import MapPage from '../mapPage/mapPage';
 import UserPage from '../userPage/userPage';
+import Login from '../modals/login/login';
+import Registration from '../modals/registration/registration';
 
 function App () {
+  const [isOpenRegistration, openCloseRegistration] = useState(false);
+  const [isOpenLogin, openCloseLogin] = useState(false);
   return (
     <BrowserRouter>
       <div className="App">
-        <Header/>
+      {isOpenLogin ? <Login closeLogin={openCloseLogin}/> : null}
+      {isOpenRegistration ? <Registration closeRegistration={openCloseRegistration}/> : null}
+        <Header openCloseLogin={openCloseLogin} openCloseRegistration={openCloseRegistration}/>
         <Routes>
           <Route path="*" element={<ErrorPage />}/>
           <Route path='' element={<MainPage/>}/>
