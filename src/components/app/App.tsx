@@ -15,6 +15,10 @@ import Registration from '../modals/registration/registration';
 function App () {
   const [isOpenRegistration, openCloseRegistration] = useState(false);
   const [isOpenLogin, openCloseLogin] = useState(false);
+
+
+  document.body.style.overflow = 'auto';
+  if (isOpenLogin || isOpenRegistration) document.body.style.overflow = 'hidden';
   return (
     <BrowserRouter>
       <div className="App">
