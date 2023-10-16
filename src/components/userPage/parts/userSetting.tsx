@@ -15,7 +15,7 @@ const UserSettings = () => {
         <Input value={''} id="e-mail" type="email"/>
         <label className="user-settings__p" htmlFor="password">Пароль:</label>
         <Input value={''} id="password" type="password"/>
-        <Button text='Сохранить' type="white"/>
+        <Button text='Сохранить' type="white" onClick={() => {}}/>
       </form>
     </div>
   )

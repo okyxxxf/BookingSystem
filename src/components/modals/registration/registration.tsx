@@ -23,7 +23,7 @@ const Registration = ({closeRegistration} : {closeRegistration : Function}) => {
 					<label className="user-settings__p" htmlFor="password-confirm">Подтвердите пароль:</label>
           <Input value={''} id="password-confirm" type="password"/>
           <div className="login__button">
-            <Button text='Зарегестрироваться' type="white"/>
+            <Button text='Зарегестрироваться' type="white" onClick={() => {}}/>
           </div>
           <div className="login__line line"></div>
           <div className="user-settings__p login__p">Еще нет аккаунта?</div>

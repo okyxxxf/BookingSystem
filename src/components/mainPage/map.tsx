@@ -1,8 +1,10 @@
 import React from "react";
 import './assets/css/mapSection.css';
 import Button from "../buttons/button";
+import { useNavigate } from "react-router";
 
 const MapSection = () => {
+	const navigate = useNavigate();
 	return (
 		<section className="section__map section">
 			<h2 className="map__h2 h2">Карта концертов</h2>
@@ -10,7 +12,7 @@ const MapSection = () => {
 				<div className="map__map"></div>
 				<div className="map__info">
 					<p className="map__p p">Удобная карта проходящих концертов поможет найти интересующий вас концерт прямо на карте, узнать как добраться до точки проведения мероприятия, дополнительную информацию и прочитать отзывы!</p>
-					<Button text={'Открыть полную карту'} type={'default'} />
+					<Button text={'Открыть полную карту'} type={'default'} onClick={() => navigate('/map')}/>
 				</div>
 			</div>
 		</section>

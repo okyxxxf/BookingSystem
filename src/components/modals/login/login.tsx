@@ -17,7 +17,7 @@ const Login = ({closeLogin} : {closeLogin : Function}) => {
           <label className="user-settings__p" htmlFor="password">Пароль:</label>
           <Input value={''} id="password" type="password"/>
           <div className="login__button">
-            <Button text='Войти' type="white"/>
+            <Button text='Войти' type="white" onClick={() => {}}/>
           </div>
           <div className="login__line line"></div>
           <div className="user-settings__p login__p">Еще нет аккаунта?</div>

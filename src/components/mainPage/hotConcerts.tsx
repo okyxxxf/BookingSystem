@@ -2,8 +2,10 @@ import React from 'react';
 import './assets/css/hotConcerts.css'
 import fire from './assets/svgs/noto_fire.svg'
 import Button from '../buttons/button';
+import { useNavigate } from 'react-router';
 
 const HotConcerts = () => {
+  const navigate = useNavigate();
   return (
     <section className='hot-concerts__section section'>
       <h2 className='hot-concert__h2 h2'>
@@ -33,7 +35,7 @@ const HotConcerts = () => {
           <p className='card__p p'>Цена: 25руб.</p>
         </div>
       </div>
-      <Button text={'Выбрать билет'} type={'default'} />
+      <Button text={'Выбрать билет'} type={'default'} onClick={() => navigate('/concerts')}/>
     </section>
   )
 };

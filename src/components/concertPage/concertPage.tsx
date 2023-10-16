@@ -30,7 +30,7 @@ const ConcertPage = () => {
         </div>
         <div className="concert-page__inputs">
           <InputNumber value={1}/>
-          <Button text='Забронировать билет' type='white'/>
+          <Button text='Забронировать билет' type='white' onClick={() => {}}/>
         </div>
       </div>
       <div className="concert-page__addition-info"></div>

@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import './button.css';
 
 interface buttonpropsInterface {
 	text : string,
-	type : 'default' | 'white'
+	type : 'default' | 'white',
+	onClick : MouseEventHandler<HTMLButtonElement>,
 }
 
 
-const Button = ({text, type} : buttonpropsInterface) => {
+const Button = ({text, type, onClick} : buttonpropsInterface) => {
 	return (
-		<button className={`${type}-button button`}>{text}</button>
+		<button onClick={onClick} className={`${type}-button button`}>{text}</button>
 	)
 };
 
