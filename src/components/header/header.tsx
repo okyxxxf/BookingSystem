@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './header.css';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface headerProps {
   openCloseLogin : Function,
@@ -9,19 +9,24 @@ interface headerProps {
 
 
 const Header = ({ openCloseLogin, openCloseRegistration} : headerProps) => {
-  const [activeBar, setActive] = useState(0);
+  const urlNow = useLocation();
   const bars = ['Главная', 'Концерты', 'Карта концертов'];
   const barsLink = ['', 'concerts', 'map'];
+  const [activeBar, setActive] = useState(barsLink[0]);
 
-  const barsRender = bars.map((bar, i) => {
-    if (activeBar === i) return (
+  useEffect(() => {
+    setActive(urlNow.pathname.slice(1));
+  }, [urlNow.pathname]);
+
+  const barsRender = barsLink.map((barLink, i) => {
+    if (activeBar === barLink) return (
       <li key={i} className="header__element element header__element_active">
-        <Link to={barsLink[i]} onClick={() => setActive(i)}>{bar}</Link>
+        <Link to={barLink}>{bars[i]}</Link>
       </li>
     )
     return (
       <li key={i} className="header__element element">
-        <Link to={barsLink[i]} onClick={() => setActive(i)}>{bar}</Link>
+        <Link to={barLink}>{bars[i]}</Link>
       </li>
     )
   })
