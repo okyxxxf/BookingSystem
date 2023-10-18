@@ -2,14 +2,18 @@ import React from "react";
 import Input from "../../inputs/input";
 import Button from "../../buttons/button";
 import './registration.css';
+import { useAppDispatch } from "../../../hooks/hooks";
+import { closeRegistration } from "../../../features/slices/modalSlice";
 
-const Registration = ({closeRegistration} : {closeRegistration : Function}) => {
+const Registration = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className="modal__login modal">
       <div className="login__wrapper">
         <div 
         className="cross-icon"
-        onClick={() => closeRegistration(false)}>x</div>
+        onClick={() => dispatch(closeRegistration())}>x</div>
         <form className="user-settings__form" action="">
           <legend className="user-settings__h2 login__h2">Регистрация</legend>
           <label className="user-settings__p" htmlFor="name">Имя:</label>

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Concert from "../../types/concert";
-import ConcertService from "../../services/concertservice";
+import ConcertService from "../../services/ConcertService";
 import { RootState } from "../../store/store";
 
 interface ConcertsState {

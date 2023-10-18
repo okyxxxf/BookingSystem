@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -11,20 +11,20 @@ import MapPage from '../mapPage/mapPage';
 import UserPage from '../userPage/userPage';
 import Login from '../modals/login/login';
 import Registration from '../modals/registration/registration';
+import { useAppSelector } from '../../hooks/hooks';
 
 function App () {
-  const [isOpenRegistration, openCloseRegistration] = useState(false);
-  const [isOpenLogin, openCloseLogin] = useState(false);
-
+  const isOpenLogin = useAppSelector(state => state.modal.isOpenLogin);
+  const isOpenRegistration = useAppSelector(state => state.modal.isOpenRegistration);
 
   document.body.style.overflow = 'auto';
   if (isOpenLogin || isOpenRegistration) document.body.style.overflow = 'hidden';
   return (
     <BrowserRouter>
       <div className="App">
-      {isOpenLogin ? <Login closeLogin={openCloseLogin}/> : null}
-      {isOpenRegistration ? <Registration closeRegistration={openCloseRegistration}/> : null}
-        <Header openCloseLogin={openCloseLogin} openCloseRegistration={openCloseRegistration}/>
+      {isOpenLogin ? <Login /> : null}
+      {isOpenRegistration ? <Registration /> : null}
+        <Header/>
         <Routes>
           <Route path="*" element={<ErrorPage />}/>
           <Route path='' element={<MainPage/>}/>

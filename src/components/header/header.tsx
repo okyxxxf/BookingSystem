@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from "react";
 import './header.css';
 import { Link, useLocation } from "react-router-dom";
-
-interface headerProps {
-  openCloseLogin : Function,
-  openCloseRegistration : Function
-}
+import { useAppSelector } from "../../hooks/hooks";
 
 
-const Header = ({ openCloseLogin, openCloseRegistration} : headerProps) => {
+const Header = () => {
   const urlNow = useLocation();
   const bars = ['Главная', 'Концерты', 'Карта концертов'];
   const barsLink = ['', 'concerts', 'map'];
   const [activeBar, setActive] = useState(barsLink[0]);
+  const isAuth = useAppSelector(state => state.auth.isAuth);
+
 
   useEffect(() => {
     setActive(urlNow.pathname.slice(1));
@@ -39,14 +37,8 @@ const Header = ({ openCloseLogin, openCloseRegistration} : headerProps) => {
         </ul>
       </nav>
       <div className="user-info">
-        <div 
-        className="registration"
-        onClick={() => {openCloseRegistration(true)}}>Регистрация</div>
-        <div className="interpunct">&#183;</div>
-        <div 
-        className="login"
-        onClick={() => {openCloseLogin(true)}}>Вход</div>
-      </div>
+      { isAuth ? <div>Профиль</div> : null}
+      </div> 
     </header>
   );
 };
