@@ -3,6 +3,9 @@ import Button from "../../buttons/button";
 import './registration.css';
 import { useAppDispatch } from "../../../hooks/hooks";
 import { closeRegistration } from "../../../features/slices/modalSlice";
+import RegistrationService from "../../../services/authServices/RegistrationService";
+import { setAuth } from "../../../features/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
   const [name, setName] = useState('');
@@ -10,6 +13,7 @@ const Registration = () => {
   const [email, setEmail] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   return (
     <div className="modal__login modal">
@@ -19,7 +23,7 @@ const Registration = () => {
         onClick={() => dispatch(closeRegistration())}>x</div>
         <form className="user-settings__form" action="">
           <legend className="user-settings__h2 login__h2">Регистрация</legend>
-          <label className="user-settings__p" htmlFor="name">Имя:</label>
+          <label className="user-settings__p" htmlFor="name">Логин:</label>
           <input 
             className="input-text" 
             id="name"
@@ -48,7 +52,17 @@ const Registration = () => {
             value= {passwordConfirm}
             onChange={(e) => setPasswordConfirm(e.target.value)}/>
           <div className="login__button">
-            <Button text='Зарегестрироваться' type="white" onClick={() => {}}/>
+            <Button text='Зарегестрироваться' type="white" onClick={async (e) => {
+              e.preventDefault();
+              const service = new RegistrationService()
+              service.registration(name, email, password)
+                .then((token) => {
+                  dispatch(setAuth());
+                  localStorage.setItem('auth-token', token['auth_token']);
+                })
+                .catch(() => navigate('/error'));
+              dispatch(closeRegistration());
+            }}/>
           </div>
           <div className="login__line line"></div>
           <div className="user-settings__p login__p">Еще нет аккаунта?</div>

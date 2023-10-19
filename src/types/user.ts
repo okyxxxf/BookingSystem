@@ -1,6 +1,6 @@
 type User = {
   name : string,
-  mail : string,
+  email : string,
   password : string,
   role : string,
 }

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Button from "../../buttons/button";
 import './login.css';
-import AuthService from "../../../services/authServices/AuthService";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../../hooks/hooks";
 import { setAuth } from "../../../features/slices/authSlice";
 import { closeLogin } from "../../../features/slices/modalSlice";
+import LoginService from "../../../services/authServices/LoginService";
 
 const Login = () => {
   const [name, setName] = useState('');
@@ -21,7 +21,7 @@ const Login = () => {
         onClick={() => dispatch(closeLogin())}>x</div>
         <form className="user-settings__form" action="">
           <legend className="user-settings__h2 login__h2">Авторизация</legend>
-          <label className="user-settings__p" htmlFor="name">Имя:</label>
+          <label className="user-settings__p" htmlFor="name">Логин:</label>
           <input 
             className="input-text" 
             id="name"
@@ -38,7 +38,7 @@ const Login = () => {
           <div className="login__button">
             <Button text='Войти' type="white" onClick={async (e) => { 
               e.preventDefault();
-              const service = new AuthService()
+              const service = new LoginService()
               service.login(name, password)
                 .then((token) => {
                   dispatch(setAuth());
