@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import AuthService from "../../services/AuthService";
+import AuthService from "../../services/authServices/AuthService";
 
 interface AuthState {
 	isAuth : boolean

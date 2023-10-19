@@ -1,11 +1,14 @@
-import React from "react";
-import Input from "../../inputs/input";
+import React, { useState } from "react";
 import Button from "../../buttons/button";
 import './registration.css';
 import { useAppDispatch } from "../../../hooks/hooks";
 import { closeRegistration } from "../../../features/slices/modalSlice";
 
 const Registration = () => {
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const dispatch = useAppDispatch();
 
   return (
@@ -17,15 +20,33 @@ const Registration = () => {
         <form className="user-settings__form" action="">
           <legend className="user-settings__h2 login__h2">Регистрация</legend>
           <label className="user-settings__p" htmlFor="name">Имя:</label>
-          <Input value={''} id="name"/>
-					<label className="user-settings__p" htmlFor="phone-number">Номер телефона:</label>
-        	<Input value={''} id="phone-number"/>
+          <input 
+            className="input-text" 
+            id="name"
+            type="name"
+            value= {name}
+            onChange={(e) => setName(e.target.value)}/>
         	<label className="user-settings__p" htmlFor="e-mail">E-mail:</label>
-        	<Input value={''} id="e-mail" type="email"/>
+        	<input 
+            className="input-text" 
+            id="email"
+            type="email"
+            value= {email}
+            onChange={(e) => setEmail(e.target.value)}/>
           <label className="user-settings__p" htmlFor="password">Пароль:</label>
-          <Input value={''} id="password" type="password"/>
+          <input 
+            className="input-text" 
+            id="password"
+            type="password"
+            value= {password}
+            onChange={(e) => setPassword(e.target.value)}/>
 					<label className="user-settings__p" htmlFor="password-confirm">Подтвердите пароль:</label>
-          <Input value={''} id="password-confirm" type="password"/>
+          <input 
+            className="input-text" 
+            id="password-confirm"
+            type="password"
+            value= {passwordConfirm}
+            onChange={(e) => setPasswordConfirm(e.target.value)}/>
           <div className="login__button">
             <Button text='Зарегестрироваться' type="white" onClick={() => {}}/>
           </div>

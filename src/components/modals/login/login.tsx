@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../buttons/button";
 import './login.css';
-import AuthService from "../../../services/AuthService";
+import AuthService from "../../../services/authServices/AuthService";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../../hooks/hooks";
 import { setAuth } from "../../../features/slices/authSlice";
