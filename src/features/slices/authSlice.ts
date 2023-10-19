@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import AuthService from "../../services/AuthService";
 
 interface AuthState {
 	isAuth : boolean
@@ -16,6 +17,9 @@ const authSlice = createSlice({
 			state.isAuth = true;
 		},
 		disableAuth : state => {
+			const service = new AuthService();
+			service.logout();
+			localStorage.removeItem('auth-token');
 			state.isAuth = false;
 		}
 	}

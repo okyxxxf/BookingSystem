@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import MainPage from '../mainPage/mainPage';
@@ -12,6 +11,8 @@ import UserPage from '../userPage/userPage';
 import Login from '../modals/login/login';
 import Registration from '../modals/registration/registration';
 import { useAppSelector } from '../../hooks/hooks';
+import './App.css';
+
 
 function App () {
   const isOpenLogin = useAppSelector(state => state.modal.isOpenLogin);

@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import './header.css';
 import { Link, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../hooks/hooks";
+import AuthLink from "./authLink/authLink";
+import ProfileLink from "./profileLink/profileLink";
 
 
 const Header = () => {
@@ -32,12 +34,12 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="nav-bar">
-        <ul className="header__list list">
+        <ul className="header__list list"> 
           {barsRender}
         </ul>
       </nav>
       <div className="user-info">
-      { isAuth ? <div>Профиль</div> : null}
+      { isAuth ? <ProfileLink/> : <AuthLink/>}
       </div> 
     </header>
   );

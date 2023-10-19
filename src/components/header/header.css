@@ -21,9 +21,12 @@
 .user-info {
     display: flex;
     gap: 5px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-.header__element > *{
+.element > *{
     color: #D9D9D9;
     text-align: center;
     font-family: Comfortaa;
@@ -32,6 +35,11 @@
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
+    transition: 0.5s;
+}
+
+.element:hover > *{
+    color: white
 }
 
 .user-info > * {
