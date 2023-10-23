@@ -54,3 +54,8 @@
     max-width: 250px;
     max-height: 250px;
 }
+
+.error-message__cat > img{
+    max-width: 250px;
+    max-height: 250px;
+}

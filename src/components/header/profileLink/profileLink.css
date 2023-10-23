@@ -43,7 +43,7 @@
 .profile-link__dropdown .dropdown__content {
     transition: 0.7s;
     position: absolute;
-    top: 55px;
+    top: 65px;
     text-align: start;
     width: auto;
     white-space: nowrap;
