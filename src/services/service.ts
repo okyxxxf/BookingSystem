@@ -4,7 +4,11 @@ abstract class Service {
   protected url : string= '';
 
   public getResourse = async (id : number | '' = '') => {
-    const res = await fetch(`${this.url}${id}`);
+    const res = await fetch(`${this.url}${id}`, {
+      headers: {
+        'Authorization' : `Token ${localStorage['auth-token']}`
+      }
+    });
     
     if (!res.ok) throw new Error('Request is bad');
 
