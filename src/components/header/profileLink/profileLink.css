@@ -41,7 +41,7 @@
 }
 
 .profile-link__dropdown .dropdown__content {
-    transition: 1s;
+    transition: 0.7s;
     position: absolute;
     top: 55px;
     text-align: start;
@@ -52,11 +52,13 @@
 .profile-link__dropdown .dropdown__content:not(:hover) {
     transform: translateY(50px);
     opacity: 0;
+    visibility: hidden;
 }
 
 .profile-link__dropdown:hover .dropdown__content {
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
 }
 
 .dropdown__content {
