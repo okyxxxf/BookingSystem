@@ -4,3 +4,9 @@
     gap: 60px;
     flex-direction: column;
 }
+
+@media screen and (max-width: 864px) {
+    .concerts {
+        gap: 20px;
+    }
+}

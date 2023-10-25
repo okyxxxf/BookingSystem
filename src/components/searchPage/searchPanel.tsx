@@ -14,19 +14,20 @@ const SearchPanel = () => {
         </div>
         <div className='search__filters'>
           <div className='filter__button'>
-            <img className='filter-icon' src={filterIcon} alt='filter-icon'/>Фильтры
+            <img className='filter-icon' src={filterIcon} alt='filter-icon'/>
+            <span>Фильтры</span>
           </div>
         </div>
       </div>
       <div className="filters">
         <div className="filter">
-          Опэнэир<img className='cross-icon' src={crossIcon} alt="cross" />
+          Опэнэир<img className='filter__cross-icon' src={crossIcon} alt="cross" />
         </div>
         <div className="filter">
-          11.11.2023<img className='cross-icon' src={crossIcon} alt="cross" />
+          11.11.2023<img className='filter__cross-icon' src={crossIcon} alt="cross" />
         </div>
         <div className="filter">
-          25 руб.<img className='cross-icon' src={crossIcon} alt="cross" />
+          25 руб.<img className='filter__cross-icon' src={crossIcon} alt="cross" />
         </div>
       </div>
     </article>
