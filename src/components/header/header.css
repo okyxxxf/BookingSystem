@@ -4,7 +4,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 120px;
-    background-color: #775A85;;
+    background-color: #775A85;
+    gap: 40px;
 }
 
 .header__list {

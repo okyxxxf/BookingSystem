@@ -1,0 +1,35 @@
+.burger-menu {
+    position: absolute;
+    animation: show-menu 0.5s ease forwards;
+}
+
+.burger-menu__element {
+    width: 100vw;
+    height: 36px;
+    background: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D9D9D9;
+}
+
+.burger-menu__element > a {
+    color: #D9D9D9;
+    font-family: Comfortaa;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+}
+
+@keyframes show-menu {
+    from{
+        top: -60px;
+        opacity: 0;
+    }
+    to {
+        top: 60px;
+        opacity: 1;
+    }
+}

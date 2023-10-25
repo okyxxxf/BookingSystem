@@ -26,14 +26,14 @@ function App () {
       {isOpenLogin ? <Login /> : null}
       {isOpenRegistration ? <Registration /> : null}
         <Header/>
-        {/* <Routes>
+        <Routes>
           <Route path="*" element={<ErrorPage />}/>
           <Route path='' element={<MainPage/>}/>
           <Route path='map' element={<MapPage/>} />
           <Route path='concerts' element={<SearchPage/>}/>
           <Route path='concerts/:concertId' element={<ConcertPage/>}/>
           <Route path='user' element={<UserPage/>}/>
-        </Routes> */}
+        </Routes>
         <Footer/>
       </div>
     </BrowserRouter>
