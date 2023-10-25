@@ -24,3 +24,13 @@
 .footer__element > a {
     text-decoration: none;
 }
+
+
+@media screen and (max-width: 864px) {
+    .footer__element > a {
+        font-size: 10px;
+    }  
+    .footer__list {
+        gap: 40px;
+    } 
+}
