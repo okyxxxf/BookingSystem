@@ -10,7 +10,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #D9D9D9;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.burger-menu__element:hover {
+    background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
 }
 
 .burger-menu__element > a {
@@ -29,7 +34,7 @@
         opacity: 0;
     }
     to {
-        top: 60px;
+        top: 62px;
         opacity: 1;
     }
 }

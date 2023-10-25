@@ -29,6 +29,7 @@
     align-items: center;
     position: relative;
     cursor: pointer;
+    padding-left: 20px;
 }
 
 .burger::after,
@@ -67,6 +68,7 @@
     width: 27px;
     height: 27px;
     cursor: pointer;
+    padding-right: 20px;
 }
 
 .profile-icon img {

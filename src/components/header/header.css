@@ -6,6 +6,7 @@
     padding: 0 120px;
     background-color: #775A85;
     gap: 40px;
+    border-bottom: 3px #1A1A1A solid;
 }
 
 .header__list {
