@@ -1,6 +1,6 @@
 .error-page {
     background: #1A1A1A;
-    height: calc(100vh - 128px);
+    min-height: calc(100vh - 128px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,4 +58,18 @@
 .error-message__cat > img{
     max-width: 250px;
     max-height: 250px;
+}
+
+
+@media screen and (max-width: 864px) {
+    .error-message {
+        flex-direction: column;
+        margin: 30px 40px;
+        gap: 20px;
+        align-items: center;
+    }
+    .error-message__info {
+        padding: 15px;
+        width: calc(100% - 30px);
+    }
 }
