@@ -2,10 +2,10 @@
     display: flex;
     z-index: 1;
     background-color: #1A1A1A;
-    height: 792px;
     flex-direction: column;
     align-items: center;
     gap: 64px;
+    padding-bottom: 70px;
 }
 
 .h2, .h3, .p {
@@ -13,7 +13,6 @@
 }
 
 .hot-concert__h2 {
-    margin: 0 auto;
     padding: 63px 0 29px 0;
     display: flex;
     gap: 20px;
@@ -84,4 +83,25 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+@media screen and (max-width: 864px) {
+    .hot-concert__h2 {
+        font-size: 28px;
+        padding: 30px 0 15px 0;
+    }
+
+    .hot-concerts__section {
+        gap: 30px
+    }
+
+    .hot-concert__card:hover {
+        transform: none;
+        cursor: pointer;
+    }
+
+    .icon-fire {
+        width: 30px;
+        height: 30px;
+    }
 }

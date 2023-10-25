@@ -51,3 +51,33 @@
     font-weight: 400;
     line-height: normal;
 }
+
+
+@media screen and (max-width: 864px) {
+    .section__about { 
+        height: 300px;
+    }  
+
+    .kitten2 {
+        display: none;
+    }
+
+    .kitten1 {
+        right: -170px;
+        bottom: -90px;
+        transform: rotate(-16.675deg) scale(0.7);
+    }
+
+    .about__h1 {
+        font-size: 26px;
+    }
+    .about__text {
+        font-size: 18px;
+        text-wrap: balance;
+    }
+
+    .about__info {
+        padding: 20px;
+        width: calc(100% - 110px);
+    }
+}

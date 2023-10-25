@@ -18,8 +18,8 @@ function App () {
   const isOpenLogin = useAppSelector(state => state.modal.isOpenLogin);
   const isOpenRegistration = useAppSelector(state => state.modal.isOpenRegistration);
 
-  document.body.style.overflow = 'auto';
-  if (isOpenLogin || isOpenRegistration) document.body.style.overflow = 'hidden';
+  document.body.style.overflowY = 'auto';
+  if (isOpenLogin || isOpenRegistration) document.body.style.overflowY = 'hidden';
   return (
     <BrowserRouter>
       <div className="App">
