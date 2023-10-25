@@ -23,3 +23,13 @@
     font-weight: 700;
     line-height: normal;
 }
+
+
+@media screen and (max-width: 1205px) {
+    .map-page__map {
+        width: calc(100% - 40px);
+        height: calc((100vw - 40px) / 1.15);
+        margin: auto;
+        
+    }
+}
