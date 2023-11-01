@@ -90,6 +90,7 @@
 
 .filters {
     overflow-x: scroll;
+    text-wrap: nowrap;
 }
 
 .filters::-webkit-scrollbar {
@@ -97,7 +98,10 @@
 }
 
 @media screen and (max-width: 864px) {
-    .filter__button span{
+    .search-panel {
+        width: 90%;
+    }
+    .filter__button span {
         display: none;
     }
     .filter-icon {
