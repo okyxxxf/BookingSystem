@@ -10,3 +10,14 @@
         gap: 20px;
     }
 }
+
+.concerts__error {
+    text-align: center;
+    color: #D9D9D9;
+    font-family: Comfortaa;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 60px;
+}
