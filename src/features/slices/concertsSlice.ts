@@ -15,7 +15,7 @@ export const fetchAllConcert = createAsyncThunk(
   'concerts/', 
   async (thunkApi) => {
     const service = new ConcertService();
-    const responce = await service.getResourse();
+    const responce = await service.getResourses();
     return responce;
 })
 

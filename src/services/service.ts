@@ -3,19 +3,32 @@ import Concert from "../types/concert";
 abstract class Service {
   protected url : string= '';
 
-  public getResourse = async (id : number | '' = '') => {
-    const res = await fetch(`${this.url}${id}`);
+  public getResourse = async(id : number = 1) => {
+    const res = await fetch(`${this.url}/${id}`, {
+      headers: {
+        'Authorization' : `Token ${localStorage['auth-token']}`
+      }
+    });
     
     if (!res.ok) throw new Error('Request is bad');
 
     return await res.json();
   };
 
-  public AddResourse = async (body : Concert) => {
+  public getResourses = async() => {
+    const res = await fetch(`${this.url}`);
+    
+    if (!res.ok) throw new Error('Request is bad');
+
+    return await res.json();
+  };
+
+  public createResourse = async (body : Concert) => {
     const res = await fetch(this.url, {
       method : 'POST',
       headers : {
-        'Content-Type' : 'application/json'
+        'Content-Type' : 'application/json',
+        'Authorization' : `Token ${localStorage['auth-token']}`
       },
       body : JSON.stringify(body),
     })
