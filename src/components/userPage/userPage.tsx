@@ -12,16 +12,28 @@ const UserPage = () => {
 	const dispatch = useAppDispatch();
 	const [openPart, changePart] = useState('Мои бронирования');
 	
+	const parts = ['Мои бронирования', 'Настройки профиля'];
+	const partsIcon = [ticketIcon, settingIcon];
+	const partsRender = parts.map((part, i) => {
+		if (part === openPart) {
+			return (
+				<li key={i} className="user-buttons__element user-buttons__element_active" onClick={() => {changePart(part)}}>
+					<img src={partsIcon[i]} alt='ticket icon'/> {part}
+				</li>
+			)
+		} else 
+		  return (
+				<li key={i} className="user-buttons__element" onClick={() => {changePart(part)}}>
+					<img src={partsIcon[i]} alt='ticket icon'/> {part}
+				</li>
+		  )
+	});
+
 	return (
 		<div className="user-page">
 			<aside className="user-buttons">
 				<ul className='user-buttons__list list'>
-					<li className="user-buttons__element_active" onClick={() => {changePart('Мои бронирования')}}>
-						<img src={ticketIcon} alt='ticket icon'/> Мои бронирования
-					</li>
-					<li className="user-buttons__element" onClick={() => {changePart('Настройки профиля')}}>
-						<img src={settingIcon} alt='setting icon'/> Настройки профиля
-					</li>
+					{partsRender}
 					<li className="user-buttons__element" onClick={() => dispatch(disableAuth())}>
 						<img src={exitIcon} alt='exit icon'/> Выйти из аккаунта
 					</li>
