@@ -3,6 +3,7 @@
     display: flex;
     gap: 90px;
     padding: 70px 120px;
+    min-height: calc(100vh - 249px);
 }
 
 .user-buttons__list {

@@ -1,3 +1,4 @@
 .search-page {
     background: #1A1A1A;
+    min-height: calc(100vh - 129px);
 }
