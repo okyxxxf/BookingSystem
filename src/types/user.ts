@@ -1,8 +1,8 @@
 type User = {
-  name : string,
+  username : string,
   email : string,
-  password : string,
-  role : string,
+  is_superuser : string,
+  phone : string,
 }
 
 export default User;

@@ -29,6 +29,8 @@ const Registration = () => {
             id="name"
             type="name"
             value= {name}
+            maxLength={20}
+            minLength={6}
             onChange={(e) => setName(e.target.value)}/>
         	<label className="user-settings__p" htmlFor="e-mail">E-mail:</label>
         	<input 

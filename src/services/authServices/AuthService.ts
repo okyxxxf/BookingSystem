@@ -13,7 +13,7 @@ class AuthService {
 
     if (!res.ok) throw new Error('cant logout');
 
-    return await res;
+    return res;
   };
 }
 

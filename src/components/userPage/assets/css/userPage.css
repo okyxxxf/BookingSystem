@@ -12,6 +12,7 @@
 }
 
 .user-buttons__element {
+    text-wrap: nowrap;
     color: #FFF;
     text-align: center;
     font-family: Comfortaa;
@@ -65,4 +66,8 @@
     align-items: start;
     gap: 20px;
     padding: 20px 40px;
+}
+
+.user__content {
+    width: 90%;
 }
