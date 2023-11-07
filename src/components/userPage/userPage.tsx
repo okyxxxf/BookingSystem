@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ticketIcon from './assets/svg/Vector.svg';
 import settingIcon from './assets/svg/setting.svg';
 import exitIcon from './assets/svg/exit.svg';
 import './assets/css/userPage.css';
 import UserBookings from './parts/userBookings';
 import UserSettings from './parts/userSetting';
+import { useAppDispatch } from '../../hooks/hooks';
+import { disableAuth } from '../../features/slices/authSlice';
 
 const UserPage = () => {
+	const dispatch = useAppDispatch();
+	const [openPart, changePart] = useState('Мои бронирования');
+	
 	return (
 		<div className="user-page">
 			<aside className="user-buttons">
 				<ul className='user-buttons__list list'>
-					<li className="user-buttons__element user-buttons__element_active">
+					<li className="user-buttons__element_active" onClick={() => {changePart('Мои бронирования')}}>
 						<img src={ticketIcon} alt='ticket icon'/> Мои бронирования
 					</li>
-					<li className="user-buttons__element">
+					<li className="user-buttons__element" onClick={() => {changePart('Настройки профиля')}}>
 						<img src={settingIcon} alt='setting icon'/> Настройки профиля
 					</li>
-					<li className="user-buttons__element">
+					<li className="user-buttons__element" onClick={() => dispatch(disableAuth())}>
 						<img src={exitIcon} alt='exit icon'/> Выйти из аккаунта
 					</li>
 				</ul>
 			</aside>
 			<div className="user__content">
-				<UserBookings/>
-				<UserSettings/>
+				{ openPart === 'Мои бронирования' ? <UserBookings/> : null }
+				{ openPart === 'Настройки профиля' ? <UserSettings/> : null }
 			</div>
 		</div>
 	)
