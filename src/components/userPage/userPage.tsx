@@ -12,9 +12,9 @@ import { useNavigate } from 'react-router-dom';
 const UserPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-	const [openPart, changePart] = useState('Мои бронирования');
+	const [openPart, changePart] = useState('Настройки профиля');
 	
-	const parts = ['Мои бронирования', 'Настройки профиля'];
+	const parts = ['Настройки профиля', 'Мои бронирования'];
 	const partsIcon = [ticketIcon, settingIcon];
 	const partsRender = parts.map((part, i) => {
 		if (part === openPart) {

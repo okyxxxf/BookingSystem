@@ -9,7 +9,7 @@ const UserSettings = () => {
 
   const setFields = async () => {
     const service = new UserService();
-    const res = await service.getInfoAboutMe();
+    const res = await service.getResourse();
     const {username, email, phone} = res;
 
     if (!username) {} else setName(username); 
@@ -46,7 +46,10 @@ const UserSettings = () => {
             type="email"
             value={emailInput}
             onChange={(e) => setEmail(e.target.value)}/>
-        <Button text='Изменить' type="white" onClick={() => {}}/>
+        <Button text='Изменить' type="white" onClick={() => {
+          const service = new UserService();
+          service.editResourse(nameInput, emailInput, phoneInput);
+        }}/>
       </form>
     </div>
   )
