@@ -18,8 +18,8 @@
 
 .map__wrapper {
     display: flex;
-    gap: 147px;
-    padding-bottom: 189px;
+    gap: 120px;
+    padding: 0 30px 190px 30px;
     justify-content: center;
     align-items: center;
 }
@@ -54,7 +54,7 @@
         padding-bottom: 70px;
     }
     .map__map {
-        width: calc(100% - 40px);
+        width: calc(100% - 200px);
     }
 
     .map__info {
@@ -68,5 +68,11 @@
 
     .section__map {
         gap: 35px;
+    }
+}
+
+@media screen and (max-width: 604px) {
+    .map__map {
+        width: calc(100% - 50px);
     }
 }
