@@ -7,8 +7,10 @@ import UserBookings from './parts/userBookings';
 import UserSettings from './parts/userSetting';
 import { useAppDispatch } from '../../hooks/hooks';
 import { disableAuth } from '../../features/slices/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const UserPage = () => {
+	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const [openPart, changePart] = useState('Мои бронирования');
 	
@@ -34,7 +36,10 @@ const UserPage = () => {
 			<aside className="user-buttons">
 				<ul className='user-buttons__list list'>
 					{partsRender}
-					<li className="user-buttons__element" onClick={() => dispatch(disableAuth())}>
+					<li className="user-buttons__element" onClick={() => { 
+						dispatch(disableAuth());
+						navigate('/');
+					}}>
 						<img src={exitIcon} alt='exit icon'/> Выйти из аккаунта
 					</li>
 				</ul>
