@@ -12,7 +12,6 @@ class RegistrationService extends AuthService {
     this.validate.validateData(data);
     const {login, password, email} = data;
 
-    console.log(data);
     const res = await fetch(`${this.baseUrl}users/`, {
       method: 'POST',
       headers: {

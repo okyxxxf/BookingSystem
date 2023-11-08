@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../buttons/button";
 import './login.css';
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../../hooks/hooks";
 import { setAuth } from "../../../features/slices/authSlice";
 import { closeLogin } from "../../../features/slices/modalSlice";
@@ -10,7 +9,7 @@ import LoginService from "../../../services/authServices/LoginService";
 const Login = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useAppDispatch();
 
   return (
@@ -43,11 +42,12 @@ const Login = () => {
                 .then((token) => {
                   dispatch(setAuth());
                   localStorage.setItem('auth-token', token['auth_token']);
+                  dispatch(closeLogin());
                 })
-                .catch(() => navigate('/error'));
-              dispatch(closeLogin());
+                .catch((error) => setErrorMessage(error));
             }}/>
           </div>
+          <div className="error__message">{errorMessage.toString()}</div>
           <div className="login__line line"></div>
           <div className="user-settings__p login__p">Еще нет аккаунта?</div>
         </form>
