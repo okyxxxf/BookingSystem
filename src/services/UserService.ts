@@ -1,8 +1,11 @@
+import EditData from "../types/editData";
 import User from "../types/user";
+import EditUserValidator from "../validators/editUser/editUserValidator";
 import Service from "./service";
 
 class UserService implements Service {
 	public url = 'http://127.0.0.1:8000/auth/users/me/';
+	public validator = new EditUserValidator();
 
 	public getResourse = async () : Promise<User> => {
 		const res = await fetch(this.url, {
@@ -14,7 +17,10 @@ class UserService implements Service {
 		return await res.json();
 	}
 
-	public editResourse = async (name : string, email : string, phone : string) => {
+	public editResourse = async (data : EditData) => {
+    this.validator.validateData(data);
+
+    const {name , email , phone} = data;
 		const res = await fetch(this.url, {
 			method : 'PATCH',
 			headers : {

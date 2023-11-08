@@ -3,9 +3,10 @@ import Button from "../../buttons/button";
 import UserService from "../../../services/UserService";
 
 const UserSettings = () => {
-  const [nameInput, setName] = useState('Не указано');
-  const [phoneInput, setPhone] = useState('Не указано');
-  const [emailInput, setEmail] = useState('Не указано');
+  const [name, setName] = useState('Не указано');
+  const [phone, setPhone] = useState('Не указано');
+  const [email, setEmail] = useState('Не указано');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const setFields = async () => {
     const service = new UserService();
@@ -30,25 +31,29 @@ const UserSettings = () => {
             className="input-text" 
             id="name"
             type="name"
-            value= {nameInput}
+            value= {name}
             onChange={(e) => setName(e.target.value)}/>
         <label className="user-settings__p" htmlFor="phone-number">Номер телефона:</label>
         <input 
             className="input-text" 
             id="phone-number"
             type="name"
-            value= {phoneInput}
+            value= {phone}
             onChange={(e) => setPhone(e.target.value)}/>
         <label className="user-settings__p" htmlFor="e-mail">E-mail:</label>
         <input 
             className="input-text" 
             id="email"
             type="email"
-            value={emailInput}
+            value={email}
             onChange={(e) => setEmail(e.target.value)}/>
-        <Button text='Изменить' type="white" onClick={() => {
+        <div className="error__message">{errorMessage.toString()}</div>
+        <Button text='Изменить' type="white" onClick={(e) => {
+          e.preventDefault();
+          setErrorMessage('');
           const service = new UserService();
-          service.editResourse(nameInput, emailInput, phoneInput);
+          service.editResourse({name, email, phone})
+          .catch(error => setErrorMessage(error));
         }}/>
       </form>
     </div>
