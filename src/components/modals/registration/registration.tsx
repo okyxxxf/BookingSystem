@@ -5,15 +5,14 @@ import { useAppDispatch } from "../../../hooks/hooks";
 import { closeRegistration } from "../../../features/slices/modalSlice";
 import RegistrationService from "../../../services/authServices/RegistrationService";
 import { setAuth } from "../../../features/slices/authSlice";
-import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
-  const [name, setName] = useState('');
+  const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   return (
     <div className="modal__login modal">
@@ -28,10 +27,10 @@ const Registration = () => {
             className="input-text" 
             id="name"
             type="name"
-            value= {name}
+            value= {login}
             maxLength={20}
             minLength={6}
-            onChange={(e) => setName(e.target.value)}/>
+            onChange={(e) => setLogin(e.target.value)}/>
         	<label className="user-settings__p" htmlFor="e-mail">E-mail:</label>
         	<input 
             className="input-text" 
@@ -56,16 +55,17 @@ const Registration = () => {
           <div className="login__button">
             <Button text='Зарегестрироваться' type="white" onClick={async (e) => {
               e.preventDefault();
-              const service = new RegistrationService()
-              service.registration(name, email, password)
+              const service = new RegistrationService();
+              service.registration({login, email, password, passwordConfirm})
                 .then((token) => {
                   dispatch(setAuth());
                   localStorage.setItem('auth-token', token['auth_token']);
+                  dispatch(closeRegistration());
                 })
-                .catch(() => navigate('/error'));
-              dispatch(closeRegistration());
+                .catch((error) => {setErrorMessage(error)})
             }}/>
           </div>
+          <div className="error__message">{errorMessage.toString()}</div>
           <div className="login__line line"></div>
           <div className="user-settings__p login__p">Еще нет аккаунта?</div>
         </form>
