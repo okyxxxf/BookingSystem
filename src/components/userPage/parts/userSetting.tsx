@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../buttons/button";
 import UserService from "../../../services/UserService";
-import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
+import { useAppDispatch } from "../../../hooks/hooks";
 import { setAdminRole } from "../../../features/slices/adminSlice";
 
 const UserSettings = () => {
@@ -10,7 +10,6 @@ const UserSettings = () => {
   const [email, setEmail] = useState('Не указано');
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useAppDispatch();
-  const isAdmin = useAppSelector(state => state.admin.isAdmin);
 
   const setFields = async () => {
     const service = new UserService();
@@ -62,7 +61,6 @@ const UserSettings = () => {
           .catch(error => setErrorMessage(error));
         }}/>
       </form>
-      {isAdmin ? <span>You admin</span> : null}
     </div>
   )
 };

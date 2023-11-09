@@ -15,11 +15,10 @@ const ConcertBody = ({ img, description, price, status, data } : concertBodyProp
   const [ concert ] = data;
   const { id, performer, tickets_count, date, place, concert_type, name, image } = concert;
 
+
   return (
     <div className="concert" key={id}>
-        { img ? <div className='concert__image' style={{
-          background : `url(${image})`
-        }}></div> : null }
+        { img ? <img className="concert__image" src={image} alt={name}/> : null }
         <div className="concert__info">
           <h2 className="concert__h2 h2">{`${name}`}</h2>
           <p className="concert__adress concert__p p">{performer}</p>

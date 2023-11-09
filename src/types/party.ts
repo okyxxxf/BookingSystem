@@ -1,6 +1,6 @@
 type PartyType = {
-  id : number,
-  concertId : number,
+  id? : number,
+  concertId? : number,
   ageLimit : number,
 }
 

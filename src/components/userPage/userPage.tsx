@@ -5,18 +5,25 @@ import exitIcon from './assets/svg/exit.svg';
 import './assets/css/userPage.css';
 import UserBookings from './parts/userBookings';
 import UserSettings from './parts/userSetting';
-import { useAppDispatch } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { disableAuth } from '../../features/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { removeAdminRole } from '../../features/slices/adminSlice';
+import CreateConcert from './parts/createConcert';
 
 const UserPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const [openPart, changePart] = useState('Настройки профиля');
+	const isAdmin = useAppSelector(state => state.admin.isAdmin);
 	
 	const parts = ['Настройки профиля', 'Мои бронирования'];
-	const partsIcon = [ticketIcon, settingIcon];
+	const partsIcon = [settingIcon, ticketIcon];
+  if (isAdmin) {
+		parts.push('Создать концерт');
+    partsIcon.push(ticketIcon);
+	}
+
 	const partsRender = parts.map((part, i) => {
 		if (part === openPart) {
 			return (
@@ -49,6 +56,7 @@ const UserPage = () => {
 			<div className="user__content">
 				{ openPart === 'Мои бронирования' ? <UserBookings/> : null }
 				{ openPart === 'Настройки профиля' ? <UserSettings/> : null }
+				{ openPart === 'Создать концерт' ? <CreateConcert/> : null }
 			</div>
 		</div>
 	)

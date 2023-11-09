@@ -1,13 +1,13 @@
 type ConcertType = {
-  id : number,
+  id? : number,
   performer : string,
   tickets_count : number,
-  date : Date,
+  date : Date | string,
   place : string,
   concert_type : 'CM' | 'OA' | 'P',
   name : string,
   description : string,
-  image : File | string,
+  image? : string,
   price : number,
 }
 

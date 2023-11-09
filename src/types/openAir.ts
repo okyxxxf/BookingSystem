@@ -1,6 +1,6 @@
 type OpenAirType = {
-  id : number,
-  concertId : number,
+  id? : number,
+  concertId? : number,
   directions : string,
   headliner : string
 }
