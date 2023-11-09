@@ -8,6 +8,7 @@ import UserSettings from './parts/userSetting';
 import { useAppDispatch } from '../../hooks/hooks';
 import { disableAuth } from '../../features/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { removeAdminRole } from '../../features/slices/adminSlice';
 
 const UserPage = () => {
 	const navigate = useNavigate();
@@ -38,6 +39,7 @@ const UserPage = () => {
 					{partsRender}
 					<li className="user-buttons__element" onClick={() => { 
 						dispatch(disableAuth());
+						dispatch(removeAdminRole());
 						navigate('/');
 					}}>
 						<img src={exitIcon} alt='exit icon'/> Выйти из аккаунта

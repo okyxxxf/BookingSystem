@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../buttons/button";
 import UserService from "../../../services/UserService";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
+import { setAdminRole } from "../../../features/slices/adminSlice";
 
 const UserSettings = () => {
   const [name, setName] = useState('Не указано');
   const [phone, setPhone] = useState('Не указано');
   const [email, setEmail] = useState('Не указано');
   const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useAppDispatch();
+  const isAdmin = useAppSelector(state => state.admin.isAdmin);
 
   const setFields = async () => {
     const service = new UserService();
     const res = await service.getResourse();
-    const {username, email, phone} = res;
+    const {username, email, phone, is_superuser} = res;
 
     if (!username) {} else setName(username); 
     if (!email) {} else setEmail(email); 
     if (!phone) {} else setPhone(phone); 
+
+    if (is_superuser) dispatch(setAdminRole());
   }
 
   useEffect(() => {
     setFields();
-  }, []);
+  },);
 
   return (
     <div className="user-settings">
@@ -56,6 +62,7 @@ const UserSettings = () => {
           .catch(error => setErrorMessage(error));
         }}/>
       </form>
+      {isAdmin ? <span>You admin</span> : null}
     </div>
   )
 };
