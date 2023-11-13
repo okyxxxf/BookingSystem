@@ -20,7 +20,6 @@ const CreateConcert = () => {
 	const [ageLimit, setAgeLimit] = useState(12);
 	const [directions, setDirections] = useState('');
 	const [headliner, setHeadliner] = useState('');
-
 	const [category, selectCategory] = useState< 'P' | 'OA' | 'CM' >('P');
 	const [voiceType, selectVoice] = useState< 'A' | 'T' | 'B'>('A');
 

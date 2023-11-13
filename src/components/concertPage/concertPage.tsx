@@ -2,19 +2,12 @@ import React from "react";
 import './concertPage.css';
 import ticketIcon from './assets/svg/Vector.svg';
 import Button from "../buttons/button";
-import InputNumber from "../inputs/inputNumber";
 
 const ConcertPage = () => {
   return (
     <div className="concert-page">
       <div className="concert-page__images">
         <div className="big-image"></div>
-        <div className="small-image"></div>
-        <div className="small-image"></div>
-        <div className="small-image"></div>
-        <div className="small-image"></div>
-        <div className="small-image"></div>
-        <div className="small-image"></div>
       </div>
       <div className="concert-page__info">
         <div className="concert-page__wrapper">
@@ -29,7 +22,12 @@ const ConcertPage = () => {
           </p>
         </div>
         <div className="concert-page__inputs">
-          <InputNumber value={1}/>
+          <input  
+          className="input-text" 
+          style={{width : '30%'}}
+          id="price"
+          type="number"
+          min="1"/>
           <Button text='Забронировать билет' type='white' onClick={() => {}}/>
         </div>
       </div>
