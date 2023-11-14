@@ -8,12 +8,14 @@ const UserSettings = () => {
   const [name, setName] = useState('Не указано');
   const [phone, setPhone] = useState('Не указано');
   const [email, setEmail] = useState('Не указано');
+  const [loading, disableLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useAppDispatch();
 
   const setFields = async () => {
     const service = new UserService();
     const res = await service.getResourse();
+    disableLoading(false);
     const {username, email, phone, is_superuser} = res;
 
     if (!username) {} else setName(username); 
@@ -26,6 +28,8 @@ const UserSettings = () => {
   useEffect(() => {
     setFields();
   },);
+
+  if (loading) return <div className="loader">Пожалуйста подождите...</div>
 
   return (
     <div className="user-settings">

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Concert from "../concert/concert";
 import './assets/css/concerts.css';
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
@@ -12,6 +12,7 @@ interface concertsProps {
 
 const Concerts = ({searchValue, category, date} : concertsProps) => {
   const concertTypeValues = { 'CM' : 'Классическая музыка', 'OA' : 'ОпенЭир', 'P' : 'Вечеринка'};
+  const [loading, disableLoading] = useState(true);
   const concerts = useAppSelector((state) => state.concerts.concerts);
   const dispatch = useAppDispatch();
 
@@ -31,12 +32,15 @@ const Concerts = ({searchValue, category, date} : concertsProps) => {
   });
 
   useEffect(() => {
-    dispatch(fetchAllConcert());
+    dispatch(fetchAllConcert())
+    .then(() => disableLoading(false));
   }, [dispatch]);
 
   useEffect(() => {
   }, [concerts]);
 
+
+  if (loading) return <div className="loader">Пожалуйста подождите...</div>
   return (
     <div className="concerts">
       {dateziedConcerts && dateziedConcerts.map((concert, i) => {
