@@ -72,3 +72,12 @@
         margin: auto;
     }
 }
+
+.loader {
+    color: #D9D9D9;
+    background: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 128px);
+}

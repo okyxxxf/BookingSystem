@@ -21,7 +21,7 @@ const ConcertPage = () => {
     .catch();
   }, [concertId]);
 
-  if (!Array.isArray(concert)) return <>Подождите пожалуйста</>
+  if (!Array.isArray(concert)) return <div className="loader">Подождите пожалуйста...</div >
   const [baseInfo, additionalInfo] = concert!;
   const {name, image, price, place, date, concert_type, tickets_count} = baseInfo!;
   const concertTypes = {'CM' : 'Классическая музыка', 'OA' : 'ОпенЭир', 'P' : 'Вечеринка'};
