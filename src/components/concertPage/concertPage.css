@@ -18,7 +18,10 @@
 
 .concert-page__images {
     flex-basis: 30%;
-    margin: 0 0 0 auto ;
+    margin: 0 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .concert-page__info {
@@ -71,6 +74,9 @@
     .concert-page__images {
         margin: auto;
     }
+    .concert-page__wrapper {
+        flex-direction: column;
+    }
 }
 
 .loader {
@@ -80,4 +86,10 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 128px);
+}
+
+.concert-page__info, .concert-page__addition-info, .concert-page__map {
+    padding: 30px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
 }

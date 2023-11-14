@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import './concertPage.css';
-import ticketIcon from './assets/svg/Vector.svg';
 import Button from "../buttons/button";
 import { useParams } from "react-router-dom";
 import Concert from "../../types/concert";
@@ -57,9 +56,6 @@ const ConcertPage = () => {
 
   return (
     <div className="concert-page">
-      <div className="concert-page__images">
-        <img src={image} alt={name} />
-      </div>
       <div className="concert-page__info">
         <div className="concert-page__wrapper">
           <div>
@@ -67,10 +63,11 @@ const ConcertPage = () => {
             <h2 className="concert__h2 h2">{price} рублей</h2>
             <p className="concert-page__p p">{place}</p>
             <p className="concert-page__p p">{concertType} &#183; {date.toString()}</p>
+            <p className="concert-page__p p">Осталось билетов - {tickets_count}</p>
           </div>
-          <p className="concert-page__p p">
-            {`${tickets_count}`} <img src={ticketIcon} alt="ticket icon"/> 
-          </p>
+          <div className="concert-page__images">
+        <img src={image} alt={name} />
+      </div>
         </div>
         <div className="concert-page__inputs">
           <Button text='Забронировать билет' type='white' onClick={() => {
@@ -80,12 +77,12 @@ const ConcertPage = () => {
         </div>
       </div>
       <div className="concert-page__addition-info">
-        {additionalInfoRender}
-      </div>
-      <div className="concert-page__map">
-        <h2 className="concert__h2 h2">Расположение на карте</h2>
-        <div className="concert__map"></div>
-      </div>
+          {additionalInfoRender}
+        </div>
+        <div className="concert-page__map">
+          <h2 className="concert__h2 h2">Расположение на карте</h2>
+          <div className="concert__map"></div>
+        </div>
     </div>
   )
 }
