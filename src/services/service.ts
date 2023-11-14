@@ -1,9 +1,9 @@
 interface service {
   url : string;
-  getResourse : Function;
-  createResourse? : Function;
-  changeResourse? : Function;
-  deleteResourse? : Function;
+  getResourse?(id : number) : Promise<any>;
+  createResourse?(body : any) : Promise<any>;
+  changeResourse?(body : any) : Promise<any>;
+  deleteResourse?(id : number) : Promise<any>;
 }
 
 export default service;

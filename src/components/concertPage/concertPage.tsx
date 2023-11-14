@@ -8,6 +8,7 @@ import ConcertService from "../../services/ConcertService";
 import ClassicMusicType from "../../types/classicMusic";
 import OpenAirType from "../../types/openAir";
 import PartyType from "../../types/party";
+import BookingService from "../../services/BookingService";
 
 const ConcertPage = () => {
   const [concert, getConcert] = useState<Concert>();
@@ -33,8 +34,8 @@ const ConcertPage = () => {
   }
 
   if (isClassicMusic(additionalInfo)){
-    additionalInfoRender.push(<p className="concert-page__p p">Композитор - {additionalInfo['composer' as keyof ClassicMusicType]}</p>);
-    additionalInfoRender.push(<p className="concert-page__p p">Тип голоса - {additionalInfo['voiceType' as keyof ClassicMusicType]}</p>);
+    additionalInfoRender.push(<p className="concert-page__p p" key={1}>Композитор - {additionalInfo['composer' as keyof ClassicMusicType]}</p>);
+    additionalInfoRender.push(<p className="concert-page__p p" key={2}>Тип голоса - {additionalInfo['voiceType' as keyof ClassicMusicType]}</p>);
   } 
 
   function isOpenAir (additionalInfo : ClassicMusicType | OpenAirType | PartyType) : additionalInfo is OpenAirType {
@@ -42,8 +43,8 @@ const ConcertPage = () => {
   }
 
   if (isOpenAir(additionalInfo)){
-    additionalInfoRender.push(<p className="concert-page__p p" >Как добраться - {additionalInfo['directions' as keyof OpenAirType]}</p>);
-    additionalInfoRender.push(<p className="concert-page__p p" >Хедлайнер - {additionalInfo['headliner' as keyof OpenAirType]}</p>);
+    additionalInfoRender.push(<p className="concert-page__p p" key={1}>Как добраться - {additionalInfo['directions' as keyof OpenAirType]}</p>);
+    additionalInfoRender.push(<p className="concert-page__p p" key={2}>Хедлайнер - {additionalInfo['headliner' as keyof OpenAirType]}</p>);
   } 
 
   function isParty (additionalInfo : ClassicMusicType | OpenAirType | PartyType) : additionalInfo is PartyType {
@@ -51,11 +52,9 @@ const ConcertPage = () => {
   }
 
   if (isParty(additionalInfo)){
-    additionalInfoRender.push(<p className="concert-page__p p" >Возрастной лимит - {additionalInfo["age_limit" as keyof PartyType]}</p>);
+    additionalInfoRender.push(<p className="concert-page__p p" key={1}>Возрастной лимит - {additionalInfo["age_limit" as keyof PartyType]}</p>);
   } 
 
-
-  console.log(additionalInfo);
   return (
     <div className="concert-page">
       <div className="concert-page__images">
@@ -74,13 +73,10 @@ const ConcertPage = () => {
           </p>
         </div>
         <div className="concert-page__inputs">
-          <input  
-          className="input-text" 
-          style={{width : '30%'}}
-          id="price"
-          type="number"
-          min="1"/>
-          <Button text='Забронировать билет' type='white' onClick={() => {}}/>
+          <Button text='Забронировать билет' type='white' onClick={() => {
+            const service = new BookingService();
+            service.createResourse(concertId);
+          }}/>
         </div>
       </div>
       <div className="concert-page__addition-info">
