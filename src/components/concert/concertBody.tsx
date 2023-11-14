@@ -1,6 +1,7 @@
 import React from "react";
 import ticketIcon from './Vector.svg';
 import Concert from "../../types/concert";
+import { useNavigate } from "react-router-dom";
 
 interface concertBodyPropsInterface {
   img? : boolean,
@@ -13,11 +14,12 @@ interface concertBodyPropsInterface {
 const ConcertBody = ({ img, description, price, status, data } : concertBodyPropsInterface) => {
   const concertTypeValues = { 'CM' : 'Классическая музыка', 'OA' : 'ОпенЭир', 'P' : 'Вечеринка'};
   const [ concert ] = data;
+  const navigate = useNavigate();
   const { id, performer, tickets_count, date, place, concert_type, name, image } = concert;
 
 
   return (
-    <div className="concert" key={id}>
+    <div className="concert" key={id} onClick={() => navigate(`/concerts/${id}`)}>
         { img ? <img className="concert__image" src={image} alt={name}/> : null }
         <div className="concert__info">
           <h2 className="concert__h2 h2">{`${name}`}</h2>

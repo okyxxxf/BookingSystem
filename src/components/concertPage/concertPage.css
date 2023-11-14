@@ -1,54 +1,49 @@
-.concert-page {
-    background: #1A1A1A;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(16, 1fr);
-    padding: 68px 130px;
-    gap: 20px;
+.concert-page__images img{
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
 }
 
-.concert-page > * {
+.concert-page {
+    background: #1A1A1A;
     display: flex;
+    flex-wrap: wrap;
+    padding: 70px 40px;
+    gap: 60px 20px;
+    min-height: calc(100vh - 268px);
+    justify-content: center;
 }
 
 .concert-page__images {
-    grid-column: 1 / 2;
-    grid-row: 1 / 10;
-}
-
-.concert-page__addition-info {
-    grid-column: 1 / 2;
-    grid-row: 10 / 17;
+    flex-basis: 30%;
+    margin: 0 0 0 auto ;
 }
 
 .concert-page__info {
-    grid-column: 2 / 3;
-    grid-row: 1 / 6;
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 }
 
-.concert-page__map {
-    grid-column: 2 / 3;
-    grid-row: 6 / 16;
-}
-
-.big-image {
-    width: 600px;
-    height: 350px;
-    border-radius: 30px;
-    background: #8E8E8E;
-}
-
-.small-image {
-    width: 84px;
-    height: 84px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    background: #8E8E8E;
-}
-
-.concert-page__images {
+.concert-page__inputs {
+    display: flex;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 20px 19px;
+}
+
+.concert-page__wrapper > div{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.concert-page__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .concert-page__p {
@@ -60,50 +55,20 @@
     line-height: normal;
 }
 
-.concert-page__wrapper {
-    border-radius: 30px;
-    background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 146px;
-    padding: 20px 30px;
-    flex-wrap: wrap;
-}
-
-.concert-page__info {
-    flex-direction: column;
-    gap: 20px;
-}
-
-.concert-page__wrapper > div {
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-}
-
-.concert-page__inputs {
-    display: flex;
-    gap: 17px;
-}
-
-.concert-page__inputs > * {
-    flex-shrink: 0;
-}
-
 .concert-page__map {
-    flex-direction: column;
-    border-radius: 30px;    
-    background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
-    align-items: center;
-    gap: 30px;
-    padding-top: 26px;
+    flex-basis: 40%;
+    align-self: flex-start;
 }
 
-.concert__map {
-    border-radius: 30px;
-    background: #8E8E8E;
-    width: 489px;
-    height: 440px;
-    flex-shrink: 0;
+.concert-page__addition-info {
+    flex-basis: 40%;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 864px) {
+    .concert-page__images {
+        margin: auto;
+    }
 }
