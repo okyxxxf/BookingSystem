@@ -9,9 +9,10 @@ interface concertBodyPropsInterface {
   price? : boolean,
   status? : boolean,
   data : Concert,
+  stausText? : string,
 }
 
-const ConcertBody = ({ img, description, price, status, data } : concertBodyPropsInterface) => {
+const ConcertBody = ({ img, description, price, status, data, stausText } : concertBodyPropsInterface) => {
   const concertTypeValues = { 'CM' : 'Классическая музыка', 'OA' : 'ОпенЭир', 'P' : 'Вечеринка'};
   const [ concert ] = data;
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const ConcertBody = ({ img, description, price, status, data } : concertBodyProp
         </div>
         <div className="concert__info">
             { price ? <AdditionalInfo ticketCount={tickets_count} price={concert.price} /> : null }
-            { status ? <div className="concert__status concert__status_booking">Забронировано</div> : null}
+            { status ? <div className="concert__status concert__status_booking">{stausText}</div> : null}
           <div className="concert__tags">
             <div className="concert__tag">{`${date}`}</div>
             <div className="concert__tag">{concertTypeValues[concert_type]}</div>

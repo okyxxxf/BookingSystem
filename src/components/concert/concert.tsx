@@ -5,15 +5,16 @@ import concert from '../../types/concert';
 
 interface concertPropsInterface {
   type : 'small' | 'big',
-  status? : 'archive' | 'succes' | 'booking',
+  status? : boolean,
   data : concert,
+  statusText? : string,
 }
 
-const Concert = ({type, data} : concertPropsInterface) => {
+const Concert = ({type, data, statusText} : concertPropsInterface) => {
   if (type === 'small') {
     return (
       <>
-        <ConcertBody img status data={data}/>
+        <ConcertBody status stausText={statusText} data={data}/>
       </>
     )
   }

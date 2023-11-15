@@ -1,3 +1,5 @@
+import Transaction from "../types/transaction";
+import ConcertService from "./ConcertService";
 import UserService from "./UserService";
 import service from "./service";
 
@@ -10,7 +12,6 @@ class BookingService implements service {
 		const {id} = user;
 
 		const dateNow = new Date();
-		
 
     const res = await fetch(this.url, {
       method : 'POST',
@@ -21,7 +22,7 @@ class BookingService implements service {
       body : JSON.stringify({
 				user_id : id,
 				concert_id : concertId,
-				data : `${dateNow.getFullYear()}-${dateNow.getMonth()}-${dateNow.getDay()}`,	
+				data : `${dateNow.getFullYear()}-${dateNow.getMonth() + 1}-${dateNow.getDate()}`,	
 			}),
     })
 
@@ -29,6 +30,38 @@ class BookingService implements service {
 
     return await res.json();
 	}
+
+  public getResourse = async () : Promise<Array<Transaction>> => {
+    const userService = new UserService();
+		const user = await userService.getResourse();
+		const {id} = user;
+
+    const res = await fetch(`${this.url}user/${id}`, {
+      headers : {
+        'Content-Type' : 'application/json',
+        'Authorization' : `Token ${localStorage['auth-token']}`
+      }
+    });
+
+    if (!res.ok) throw new Error(res.statusText);
+
+    const resArray = await res.json();
+    await resArray.forEach((transaction : Transaction) => {
+      this.checkStatus(transaction)
+      .then(status => transaction.status = status);
+    });
+
+    return resArray;
+  }
+
+  private checkStatus = async (transaction : Transaction) : Promise<'В архиве' | 'Актуально'> => {
+    const {concert_id} = transaction;
+    const {data} = await new ConcertService().getResourse(+concert_id);
+    const timestamp = new Date(data);
+
+    if (timestamp.getTime > new Date().getTime) return 'В архиве';
+    return 'Актуально';
+  }
 }
 
 export default BookingService;
