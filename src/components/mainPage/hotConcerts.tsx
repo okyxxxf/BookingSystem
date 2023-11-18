@@ -20,12 +20,12 @@ const HotConcerts = () => {
   });
 
   const concertRender = concerts?.map(concert => (
-    <div className='hot-concert__card card'>
-    <img className='card__img' src={concert.image} alt='' />
-    <h3 className='card__h3 h3'>{concert.name}</h3>
-    <p className='card__p p'>Дата: {concert.date.toString()}</p>
-    <p className='card__p p'>Цена: {concert.price}руб.</p>
-  </div>
+    <div className='hot-concert__card card' onClick={() => navigate(`/concerts/${concert.id}`)}>
+      <img className='card__img' src={concert.image} alt='' />
+      <h3 className='card__h3 h3'>{concert.name}</h3>
+      <p className='card__p p'>Дата: {concert.date.toString()}</p>
+      <p className='card__p p'>Цена: {concert.price}руб.</p>
+    </div>
   ));
 
   return (
