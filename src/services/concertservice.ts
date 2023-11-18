@@ -38,6 +38,14 @@ class ConcertService implements Service{
 
     return await res.json();
   };
+
+  public getHotResourse =async () => {
+    const res = await fetch(`${this.url}top`);
+
+    if (!res.ok) throw new Error(res.statusText);
+
+    return await res.json();
+  }
 }
 
 export default ConcertService;
