@@ -93,3 +93,13 @@
     border-radius: 30px;
     background: linear-gradient(180deg, #775A85 0%, #C97FEC 100%);
 }
+
+#map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.concert-page__addition-info {
+    height:fit-content;
+}

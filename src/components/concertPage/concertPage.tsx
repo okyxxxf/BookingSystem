@@ -4,13 +4,14 @@ import Button from "../buttons/button";
 import { useParams } from "react-router-dom";
 import Concert from "../../types/concert";
 import ConcertService from "../../services/ConcertService";
-import ClassicMusicType from "../../types/classicMusic";
-import OpenAirType from "../../types/openAir";
-import PartyType from "../../types/party";
 import BookingService from "../../services/BookingService";
+import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import AdditionalInfo from "./additionalInfo";
+import Geocoder from "../../services/DecoderService";
 
 const ConcertPage = () => {
   const [concert, getConcert] = useState<Concert>();
+  const [cords, setCords] = useState();
   const { concertId } = useParams();
 
   useEffect(() => {
@@ -21,38 +22,25 @@ const ConcertPage = () => {
     .catch();
   }, [concertId]);
 
-  if (!Array.isArray(concert)) return <div className="loader">Подождите пожалуйста...</div >
+  useEffect(() => {
+    const getConcertCoordinates = async () => {
+			if (!concert) return;
+			const geocoder = new Geocoder();
+			const coordObject = await geocoder.getResourse(concert[0].place);
+			return coordObject.response?.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
+    }
+		getConcertCoordinates()
+      .then((cord) => {
+        setCords(cord?.split(' ').reverse().map((cord : any) => +cord))
+      })
+  }, [concert]);
+
+  if (!Array.isArray(concert)) return <div className="loader">Подождите пожалуйста...</div>
+
   const [baseInfo, additionalInfo] = concert!;
   const {name, image, price, place, date, concert_type, tickets_count} = baseInfo!;
   const concertTypes = {'CM' : 'Классическая музыка', 'OA' : 'ОпенЭир', 'P' : 'Вечеринка'};
   const concertType = concertTypes[concert_type];
-  const additionalInfoRender = [];
-
-  function isClassicMusic (additionalInfo : ClassicMusicType | OpenAirType | PartyType) : additionalInfo is ClassicMusicType {
-    return (additionalInfo as ClassicMusicType).name !== undefined;
-  }
-
-  if (isClassicMusic(additionalInfo)){
-    additionalInfoRender.push(<p className="concert-page__p p" key={1}>Композитор - {additionalInfo['composer' as keyof ClassicMusicType]}</p>);
-    additionalInfoRender.push(<p className="concert-page__p p" key={2}>Тип голоса - {additionalInfo['voiceType' as keyof ClassicMusicType]}</p>);
-  } 
-
-  function isOpenAir (additionalInfo : ClassicMusicType | OpenAirType | PartyType) : additionalInfo is OpenAirType {
-    return (additionalInfo as OpenAirType).headliner !== undefined;
-  }
-
-  if (isOpenAir(additionalInfo)){
-    additionalInfoRender.push(<p className="concert-page__p p" key={1}>Как добраться - {additionalInfo['directions' as keyof OpenAirType]}</p>);
-    additionalInfoRender.push(<p className="concert-page__p p" key={2}>Хедлайнер - {additionalInfo['headliner' as keyof OpenAirType]}</p>);
-  } 
-
-  function isParty (additionalInfo : ClassicMusicType | OpenAirType | PartyType) : additionalInfo is PartyType {
-    return (additionalInfo as PartyType).age_limit !== undefined;
-  }
-
-  if (isParty(additionalInfo)){
-    additionalInfoRender.push(<p className="concert-page__p p" key={1}>Возрастной лимит - {additionalInfo["age_limit" as keyof PartyType]}</p>);
-  } 
 
   return (
     <div className="concert-page">
@@ -77,11 +65,38 @@ const ConcertPage = () => {
         </div>
       </div>
       <div className="concert-page__addition-info">
-          {additionalInfoRender}
+          <AdditionalInfo additionalInfo={additionalInfo}/>
         </div>
         <div className="concert-page__map">
           <h2 className="concert__h2 h2">Расположение на карте</h2>
-          <div className="concert__map"></div>
+          <div className="concert__map">
+            <YMaps
+              query={{
+                apikey: '3077528e-7089-4623-a1df-7121ad860030'
+              }}>
+              <div className="concert-page__map" id='map'>
+                <Map
+                  defaultState={{ 
+                    center: cords,
+                    zoom: 12 
+                  }}
+                  width={'300px'}
+                  height={'300px'}>
+                    <Placemark defaultGeometry={cords}
+                    options={{
+                      iconImageSize: [30, 30],
+                      draggable: true,
+                      preset: "islands#greenIcon",
+                    }}
+                    properties={{
+                      hintContent: name,
+                      balloonContent: `${concert[0]?.place}`
+                    }} 
+                    modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}/>
+                </Map>
+              </div>
+            </YMaps>
+          </div>
         </div>
     </div>
   )
