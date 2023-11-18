@@ -103,3 +103,36 @@
 .concert-page__addition-info {
     height:fit-content;
 }
+
+
+.message {
+    width: 300px;
+    height: 100px;
+    position: fixed;
+    right: 10px;
+    animation: show-message 2.5s ease forwards;
+    background: #dbb7b7;
+    bottom: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border: 2px solid #1A1A1A;
+}
+
+@keyframes show-message {
+    from {
+        transform: translateY(100px);
+    }
+    20% {
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}   

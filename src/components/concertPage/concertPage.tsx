@@ -10,14 +10,15 @@ import AdditionalInfo from "./additionalInfo";
 import Geocoder from "../../services/DecoderService";
 
 const ConcertPage = () => {
-  const [concert, getConcert] = useState<Concert>();
+  const [concert, setConcert] = useState<Concert>();
   const [cords, setCords] = useState();
+  const [message, setMessage] = useState<string>();
   const { concertId } = useParams();
 
   useEffect(() => {
     const service = new ConcertService();
     service.getResourse(+concertId!).then((concert) => {
-      getConcert(concert);
+      setConcert(concert);
     })
     .catch();
   }, [concertId]);
@@ -61,8 +62,13 @@ const ConcertPage = () => {
           <Button text='Забронировать билет' type='white' onClick={() => {
             const service = new BookingService();
             service.createResourse(concertId);
+            setMessage('Забронированно успешно');
+            setTimeout(() => {
+              setMessage('');
+            }, 2500)
           }}/>
         </div>
+        {message ? <div className="message">{message}</div> : null}
       </div>
       <div className="concert-page__addition-info">
           <AdditionalInfo additionalInfo={additionalInfo}/>
