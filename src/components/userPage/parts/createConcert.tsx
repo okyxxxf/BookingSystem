@@ -22,6 +22,7 @@ const CreateConcert = () => {
 	const [headliner, setHeadliner] = useState('');
 	const [category, selectCategory] = useState< 'P' | 'OA' | 'CM' >('P');
 	const [voiceType, selectVoice] = useState< 'A' | 'T' | 'B'>('A');
+	const [message, setMessage] = useState<string>();
 
 	const categories = ['ОпенЭир', 'Вечеринка', 'Классическая музыка'];
 	const categoriesValues : Array<'OA' | 'P' | 'CM'>= ['OA', 'P', 'CM'];
@@ -96,7 +97,8 @@ const CreateConcert = () => {
 					];
 					switch (newConcert[0].concert_type) {
 						case 'CM' :
-							newConcert.push({ voiceType : voiceType, name : name, composer : performer });
+							console.log(voiceType)
+							newConcert.push({ voice_type : voiceType, name : name, composer : performer });
 							break;
 						case 'P' :
 							newConcert.push({ age_limit : ageLimit });
@@ -109,9 +111,15 @@ const CreateConcert = () => {
 					.then(() => {
 						const form = document.querySelector('.create-concert__form');
 						form?.querySelectorAll('input').forEach((input) => input.value = '');
-					}).catch(err => setErrorMessage(err));
+						setMessage('Забронированно успешно');
+						setTimeout(() => {
+							setMessage('');
+						}, 2500);
+					})
+					.catch(err => setErrorMessage(err));
 				}}/>
       </form>
+			{message ? <div className="message">{message}</div> : null}
     </div>
 	)
 }
