@@ -17,7 +17,7 @@ const HotConcerts = () => {
 
   useEffect(() => {
     getConcerts();
-  });
+  },[]);
 
   const concertRender = concerts?.map(concert => (
     <div className='hot-concert__card card' onClick={() => navigate(`/concerts/${concert.id}`)}>
