@@ -111,7 +111,7 @@ const CreateConcert = () => {
 					.then(() => {
 						const form = document.querySelector('.create-concert__form');
 						form?.querySelectorAll('input').forEach((input) => input.value = '');
-						setMessage('Забронированно успешно');
+						setMessage('Создано успешно');
 						setTimeout(() => {
 							setMessage('');
 						}, 2500);
