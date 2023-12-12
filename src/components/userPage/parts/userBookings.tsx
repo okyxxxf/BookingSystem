@@ -40,9 +40,9 @@ const UserBookings = () => {
 
   return (
     <div className="user-bookings">
-      {concerts && concerts.map((concert, i) => {
+      {concerts && bookings && concerts.map((concert, i) => {
         return (
-          <Concert type="small" data={concert} statusText={bookings![i].status} key={i}/>
+          <Concert type="small" data={concert} statusText={bookings![i].status} key={i} transactionId={bookings[i].id}/>
         )
       })}
     </div>

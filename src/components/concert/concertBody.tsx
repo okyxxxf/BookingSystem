@@ -2,6 +2,7 @@ import React from "react";
 import ticketIcon from './Vector.svg';
 import Concert from "../../types/concert";
 import { useNavigate } from "react-router-dom";
+import BookingService from "../../services/BookingService";
 
 interface concertBodyPropsInterface {
   img? : boolean,
@@ -10,9 +11,11 @@ interface concertBodyPropsInterface {
   status? : boolean,
   data : Concert,
   stausText? : string,
+  crossIcon? : boolean,
+  transationId? : number,
 }
 
-const ConcertBody = ({ img, description, price, status, data, stausText } : concertBodyPropsInterface) => {
+const ConcertBody = ({ img, description, price, status, data, stausText, crossIcon, transationId } : concertBodyPropsInterface) => {
   const concertTypeValues = { 'CM' : 'Классическая музыка', 'OA' : 'ОпенЭир', 'P' : 'Вечеринка'};
   const [ concert ] = data;
   const navigate = useNavigate();
@@ -21,6 +24,12 @@ const ConcertBody = ({ img, description, price, status, data, stausText } : conc
 
   return (
     <div className="concert" key={id} onClick={() => navigate(`/concerts/${id}`)}>
+        { crossIcon ? <div className="cross-icon" onClick={(e) => { 
+          const service = new BookingService();
+          e.stopPropagation();
+          service.deleteResourse(transationId!);
+          window.location.reload();
+        }}>X</div> : null }
         { img ? <img className="concert__image" src={image} alt={name}/> : null }
         <div className="concert__info">
           <h2 className="concert__h2 h2">{`${name}`}</h2>

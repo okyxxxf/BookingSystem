@@ -62,6 +62,18 @@ class BookingService implements service {
     if (timestamp.getTime > new Date().getTime) return 'В архиве';
     return 'Актуально';
   }
+
+  public deleteResourse = async (id: number) : Promise<any> => {
+    const res = await fetch(`${this.url}${id}`, {
+      method : 'DELETE',
+      headers : {
+        'Content-Type' : 'application/json',
+        'Authorization' : `Token ${localStorage['auth-token']}`
+      },
+    });
+
+    if (!res.ok) throw new Error(res.statusText);
+  }
 }
 
 export default BookingService;

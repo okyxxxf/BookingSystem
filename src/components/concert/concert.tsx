@@ -8,13 +8,14 @@ interface concertPropsInterface {
   status? : boolean,
   data : concert,
   statusText? : string,
+  transactionId? : number,
 }
 
-const Concert = ({type, data, statusText} : concertPropsInterface) => {
+const Concert = ({type, data, statusText, transactionId} : concertPropsInterface) => {
   if (type === 'small') {
     return (
       <>
-        <ConcertBody status stausText={statusText} data={data}/>
+        <ConcertBody status stausText={statusText} data={data} crossIcon transationId={transactionId}/>
       </>
     )
   }

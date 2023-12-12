@@ -8,6 +8,7 @@
     align-items: center;
     width: calc(100% - 40px);
     justify-content: space-around;
+    position: relative;
 }
 
 .concert__image {
